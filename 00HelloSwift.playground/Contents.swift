@@ -6,7 +6,7 @@ var str = "Hello, playground"
 
 
 //swift -----第一节  say hello world
-println("hello world")
+print("hello world")
 
 
 

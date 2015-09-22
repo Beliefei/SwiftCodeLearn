@@ -203,13 +203,64 @@ increment(7)
 
 //函数 也可以当做参数传入传入另一个函数
 
+func hasAnyMatches(list:[Int],condition:Int ->Bool)->Bool{
+    for item in list{
+        if condition(item){
+            return true
+        }
+    }
+    return false
+}
+
+func lessThanTen(number:Int)->Bool{
+    return number < 10
+}
+
+hasAnyMatches([20, 10, 7, 21], condition: lessThanTen)
 
 
 
+class BaseClass {
+    var name:String
+    
+    init(name:String){
+    
+        self.name = name
+    
+    }
+    
+    func printMyMessage()->String{
+        return "我的名字是\(name)"
+    }
+}
 
 
+var testBaseClass = BaseClass(name: "AAAb")
+
+print(testBaseClass.printMyMessage())
 
 
+class SubClass: BaseClass {
+    
+    init(name:String,sub:String){
+        
+        self.subName = sub
+
+        super.init(name: name)
+        
+    }
+    
+    var subName:String
+
+    override func printMyMessage() -> String {
+        return "自己的名字是\(subName)"
+    }
+}
+
+
+var testSubName =  SubClass(name: "MMMM", sub: "-KKKK")
+
+print(testSubName.printMyMessage())
 
 
 
